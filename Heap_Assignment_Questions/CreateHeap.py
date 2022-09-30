@@ -27,6 +27,7 @@ def buildHeap(arr,n):
 if __name__ == '__main__':
 
     arr = [1, 3, 7, 9, 12, 10, 8, 16, 18, 22, 27]
+    # arr = [3,9,2,1,4,5]
     n = len(arr)
 
     buildHeap(arr,n)
