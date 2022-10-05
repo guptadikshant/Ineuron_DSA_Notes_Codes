@@ -12,7 +12,7 @@ def findMaxandMin(arr, i, j):
 
     else:
 
-        mid = i + (j-1) // 2
+        mid = i + (j-i) // 2
 
         max_1,min_1 = findMaxandMin(arr, i, mid)
         max_2,min_2 = findMaxandMin(arr,mid+1,j)
@@ -42,4 +42,4 @@ if __name__ == '__main__':
 
     MaxVal, MinVal = findMaxandMin(arr, i, j)
 
-    print(f"The maximum value is:{MaxVal} and minimum value is : {MinVal}")
+    print(f"The maximum value is : {MaxVal} and minimum value is : {MinVal}")
