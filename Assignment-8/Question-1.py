@@ -7,6 +7,8 @@ For example:
 arr = [40, 25, 68, 79, 52, 66, 89, 97]
 k = 2
 result = 40
+
+Total time complexity of this solution is O(k+N log N)
 """
 
 from typing import List
@@ -14,16 +16,22 @@ import heapq
 
 
 def kSmallestElement(arr: List[int], k) -> int:
-    # this is to make sure we can get rid of the duplicates
-    arr = list(set(arr))
-    # it gives the first k smallest elements in the array
-    ans = heapq.nsmallest(k, arr)
-    # as the indexes of array start from 0 there we are taking one less values of k
-    return ans[k - 1]
 
+    #First sort the array in ascending order
+
+    min_heap = sorted(arr) # time complexity O(N logN)
+    result :int = 0
+
+    # Running loop K times so that we can pop out the elements that many number of times
+    # and will give the kth smallest element
+
+    for i in range(k): # time complexity O(k)
+        result = heapq.heappop(min_heap)
+
+    return result
 
 if __name__ == "__main__":
-    arr = [40, 25, 68, 79, 52, 66, 89, 97, 26, 26, 27]
+    arr = [40, 25, 68, 79, 52, 66, 89, 97]
     k = 2
     result = kSmallestElement(arr, k)
     print(f"Kth smallest element is : {result}")
